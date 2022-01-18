@@ -1,4 +1,4 @@
-// @import "mixin";
+@import "breakpoints/mixin";
 // @import "hero-slider";
 
 @import "breakpoints/base";
@@ -27,8 +27,4 @@
 // 印刷時のみの記述
 @media print {
   @import "breakpoints/print";
-}
-
-img {
-  max-width: 250px;
 }
