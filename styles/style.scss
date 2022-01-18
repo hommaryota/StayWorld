@@ -28,3 +28,7 @@
 @media print {
   @import "breakpoints/print";
 }
+
+img {
+  max-width: 250px;
+}
