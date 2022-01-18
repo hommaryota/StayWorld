@@ -18,16 +18,15 @@ $pattern: (
     transition: all 0.8s;
     opacity: 0;
   }
-}
+  &.inView {
+    & .item {
+      opacity: 1;
+      transform: none;
 
-&.inView {
-  & .item {
-    opacity: 1;
-    transform: none;
-
-    @for $i from 1 through 10 {
-      &:nth-child(#{$i}) {
-        transition-delay: $i * 0.1s;
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          transition-delay: $i * 0.1s;
+        }
       }
     }
   }
