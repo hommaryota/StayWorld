@@ -100,3 +100,21 @@ img {
     background-color: rgba(0, 0, 0, 0.4);
   }
 }
+
+.bg-img-zoom {
+  background-image: url(../../images/image-1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  background-color: black;
+  @extend .img-zoom;
+}
+
+.img-bg50 {
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 50%;
+  }
+}
