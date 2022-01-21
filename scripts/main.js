@@ -1,7 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const el = document.querySelector('.animate-title');
-  const str = el.innerHTML.trim().split("");
+  const ta = new TextAnimation('.animate-title');
+  const ta2 = new TextAnimation('.animate-title-2');
+  setTimeout(() => {
+    ta.animate();
+    ta2.animate();
+  }, 1000);
 
+  // const el = document.querySelector('.animate-title');
+  // const str = el.innerHTML.trim().split("");
+  // const el2 = document.querySelector('.animate-title-2');
+  // const str2 = el2.innerHTML.trim().split("");
   // let concatStr = '';
 
   // for (let c of str) {
@@ -9,66 +17,32 @@ document.addEventListener('DOMContentLoaded', function () {
   //   concatStr += `<span class="char">${c}</span>`;
   // }
 
-  el.innerHTML =  str.reduce((acc, curr) => {
-    curr = curr.replace(' ', '&nbsp;');
-    return `${acc}<span class="char">${curr}</span>`;
-  },"");
+  // el.innerHTML =  str.reduce((acc, curr) => {
+  //   curr = curr.replace(' ', '&nbsp;');
+  //   return `${acc}<span class="char">${curr}</span>`;
+  // }, "")
+  // el2.inerHTML =  str2.reduce((acc, curr) => {
+  //   curr= curr.replace(' ', '&nbsp;');
+  //   retun `${acc}<span class="char">${curr}</span>`;
+  // },"");
 });
 
-// const btn = document.querySelector('#btn');
-// const h1 = document.querySelector('h1');
-
-// function changeColor() {
-//   // this.style.color = 'red';
-//   h1.style.color = 'red';
-//   // console.log(this);
-// };
-
-// function changeBgColor() {
-//   h1.style.backgroundColor = 'green';
-// }
-// btn.addEventListener('click', changeColor);
-// btn.addEventListener('click', changeBgColor);
-
-// btn.removeEventListener('click', hello);
-
-// const str = 'animation';
-// const strArry = str.split('');
-
-// function tag(accu, curr) {
-//   console.log(accu);
-//   return `${accu}<${curr}>`;
-// }
-
-
-// function reduce(arry, callback, defaultValue) {
-//   let accu = defaultValue;
-
-//   for (let i = 0; i < arry.length; i++){
-//     let curr = arry[i];
-//     callback(accu, curr);
-//   }
-
-//   return accu;
-// }
-
-// const result = reduce(strArry,tag, "");
-// console.log(result);
-
-// const array = [1, 2, 3, 4, 5];
-
-// array.reduce(function (accu, curr) {
-//   console.log(accu, curr);
-//   // return accu * curr;
-// }, 10);
-
-// const str = 'animation';
-// const strArray = str.split('');
-
-// console.log(strArray);
-
-// const result = strArray.reduce((accu, curr) => {
-//   return   `${accu}<${curr}>`;
-// },'');
-
-// console.log(result);
+class TextAnimation {
+  constructor(el) {
+    this.el = document.querySelector(el);
+    this.chars = this.el.innerHTML.trim().split("");
+    this.el.innerHTML = this._splitText();
+  }
+  _splitText() {
+    return this.chars.reduce((acc, curr) => {
+      curr = curr.replace(' ', '&nbsp;');
+      return `${acc}<span class="char">${curr}</span>`;
+    }, "");
+  }
+  animate() {
+    this.el.classList.toggle('inView');
+  }
+}
+// const ta = new TextAnimation('.animate-title');
+// const ta2 = new TextAnimation('.animate-title2');
+// ta.log();
