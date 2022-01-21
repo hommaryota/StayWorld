@@ -1,3 +1,5 @@
+@import "../modules/mixin";
+
 html {
   font-family: "Teko", sans-serif;
 }
@@ -6,36 +8,39 @@ body {
   margin: 0;
 }
 
-#container {
+section {
   position: relative;
   height: 100vh;
   background-color: teal;
+  &:nth-child(2) {
+    background-color: mediumvioletred;
+  }
+  &:nth-child(3) {
+    background-color: orange;
+  }
 }
 
 .animate-title,
 .tween-animate-title {
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
-  // opacity: 0;
+  opacity: 0;
   font-size: 2em;
-
   &.inView {
     opacity: 1;
-
     & .char {
       display: inline-block;
     }
   }
-
   & .char {
     opacity: 0;
   }
 }
 
-.tween-animate-title.inView .char {
+.animate-title.inView .char {
   @include animation(
     $name: kf-animate-chars,
     $duration: 0.5s,
@@ -43,7 +48,7 @@ body {
     $fill-mode: both
   );
 
-  @for $i from 1 through 14 {
+  @for $i from 1 through 30 {
     &:nth-child(#{$i}) {
       animation-delay: $i * 0.04s;
     }
@@ -55,7 +60,6 @@ body {
     opacity: 0;
     transform: translateY(-50%);
   }
-
   100% {
     opacity: 1;
     transform: translateY(0);
