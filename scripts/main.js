@@ -1,17 +1,34 @@
-const btn = document.querySelector('#btn');
-const h1 = document.querySelector('h1');
+document.addEventListener('DOMContentLoaded', function () {
+  const el = document.querySelector('.animate-title');
+  const str = el.innerHTML.trim().split("");
 
-function changeColor() {
-  // this.style.color = 'red';
-  h1.style.color = 'red';
-  // console.log(this);
-};
+  // let concatStr = '';
 
-function changeBgColor() {
-  h1.style.backgroundColor = 'green';
-}
-btn.addEventListener('click', changeColor);
-btn.addEventListener('click', changeBgColor);
+  // for (let c of str) {
+  //   c =  c.replace(' ', '&nbsp;');
+  //   concatStr += `<span class="char">${c}</span>`;
+  // }
+
+  el.innerHTML =  str.reduce((acc, curr) => {
+    curr = curr.replace(' ', '&nbsp;');
+    return `${acc}<span class="char">${curr}</span>`;
+  },"");
+});
+
+// const btn = document.querySelector('#btn');
+// const h1 = document.querySelector('h1');
+
+// function changeColor() {
+//   // this.style.color = 'red';
+//   h1.style.color = 'red';
+//   // console.log(this);
+// };
+
+// function changeBgColor() {
+//   h1.style.backgroundColor = 'green';
+// }
+// btn.addEventListener('click', changeColor);
+// btn.addEventListener('click', changeBgColor);
 
 // btn.removeEventListener('click', hello);
 
