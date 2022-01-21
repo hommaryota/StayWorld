@@ -1,37 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const ta = new TextAnimation('.animate-title');
-  const ta2 = new TextAnimation('.animate-title-2');
-  setTimeout(() => {
-    ta.animate();
-    ta2.animate();
-  }, 1000);
-
-  // const el = document.querySelector('.animate-title');
-  // const str = el.innerHTML.trim().split("");
-  // const el2 = document.querySelector('.animate-title-2');
-  // const str2 = el2.innerHTML.trim().split("");
-  // let concatStr = '';
-
-  // for (let c of str) {
-  //   c =  c.replace(' ', '&nbsp;');
-  //   concatStr += `<span class="char">${c}</span>`;
-  // }
-
-  // el.innerHTML =  str.reduce((acc, curr) => {
-  //   curr = curr.replace(' ', '&nbsp;');
-  //   return `${acc}<span class="char">${curr}</span>`;
-  // }, "")
-  // el2.inerHTML =  str2.reduce((acc, curr) => {
-  //   curr= curr.replace(' ', '&nbsp;');
-  //   retun `${acc}<span class="char">${curr}</span>`;
-  // },"");
+  const btn = document.querySelector('#btn');
+  const ta = new TweenTextAnimation('.tween-animate-title');
+  ta.animate();
+  // btn.addEventListener('click', ta.animate.bind(ta));
 });
 
 class TextAnimation {
   constructor(el) {
-    this.el = document.querySelector(el);
-    this.chars = this.el.innerHTML.trim().split("");
-    this.el.innerHTML = this._splitText();
+    this.DOM = {};
+    this.DOM.el = document.querySelector(el);
+    // this.DOM.el = document.querySelector(el);
+    this.chars = this.DOM.el.innerHTML.trim().split("");
+    this.DOM.el.innerHTML = this._splitText();
   }
   _splitText() {
     return this.chars.reduce((acc, curr) => {
@@ -40,9 +20,26 @@ class TextAnimation {
     }, "");
   }
   animate() {
-    this.el.classList.toggle('inView');
+    this.DOM.el.classList.toggle('inView');
   }
 }
-// const ta = new TextAnimation('.animate-title');
-// const ta2 = new TextAnimation('.animate-title2');
-// ta.log();
+
+class TweenTextAnimation extends TextAnimation {
+  constructor(el) {
+    super(el);
+    this.DOM.chars = this.DOM.el.querySelectorAll('.char');
+  }
+  animate() {
+    this.DOM.el.classList.add('inView');
+    this.DOM.chars.forEach((c, i) => {
+      TweenMax.to(c, .6, {
+        ease: Back.easeOut,
+        delay: i * .05,
+        startAt: { y: '-50%', opacity: 0 },
+        y: '0%',
+        opacity:1,
+      });
+    });
+    this.DOM.el.classList.toggle('inView');
+  }
+}

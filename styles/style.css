@@ -13,20 +13,27 @@ body {
 }
 
 .animate-title,
-.animate-title-2 {
+.tween-animate-title {
   color: white;
-  opacity: 0;
   font-size: 2em;
 }
 
 .animate-title.inView,
-.animate-title-2.inView {
+.tween-animate-title.inView {
   opacity: 1;
 }
 
 .animate-title.inView .char,
-.animate-title-2.inView .char {
+.tween-animate-title.inView .char {
   display: inline-block;
+}
+
+.animate-title .char,
+.tween-animate-title .char {
+  opacity: 0;
+}
+
+.tween-animate-title.inView .char {
   -webkit-animation-name: kf-animate-chars;
           animation-name: kf-animate-chars;
   -webkit-animation-duration: 0.5s;
@@ -43,86 +50,72 @@ body {
           animation-fill-mode: both;
 }
 
-.animate-title.inView .char:nth-child(1),
-.animate-title-2.inView .char:nth-child(1) {
+.tween-animate-title.inView .char:nth-child(1) {
   -webkit-animation-delay: 0.04s;
           animation-delay: 0.04s;
 }
 
-.animate-title.inView .char:nth-child(2),
-.animate-title-2.inView .char:nth-child(2) {
+.tween-animate-title.inView .char:nth-child(2) {
   -webkit-animation-delay: 0.08s;
           animation-delay: 0.08s;
 }
 
-.animate-title.inView .char:nth-child(3),
-.animate-title-2.inView .char:nth-child(3) {
+.tween-animate-title.inView .char:nth-child(3) {
   -webkit-animation-delay: 0.12s;
           animation-delay: 0.12s;
 }
 
-.animate-title.inView .char:nth-child(4),
-.animate-title-2.inView .char:nth-child(4) {
+.tween-animate-title.inView .char:nth-child(4) {
   -webkit-animation-delay: 0.16s;
           animation-delay: 0.16s;
 }
 
-.animate-title.inView .char:nth-child(5),
-.animate-title-2.inView .char:nth-child(5) {
+.tween-animate-title.inView .char:nth-child(5) {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
 
-.animate-title.inView .char:nth-child(6),
-.animate-title-2.inView .char:nth-child(6) {
+.tween-animate-title.inView .char:nth-child(6) {
   -webkit-animation-delay: 0.24s;
           animation-delay: 0.24s;
 }
 
-.animate-title.inView .char:nth-child(7),
-.animate-title-2.inView .char:nth-child(7) {
+.tween-animate-title.inView .char:nth-child(7) {
   -webkit-animation-delay: 0.28s;
           animation-delay: 0.28s;
 }
 
-.animate-title.inView .char:nth-child(8),
-.animate-title-2.inView .char:nth-child(8) {
+.tween-animate-title.inView .char:nth-child(8) {
   -webkit-animation-delay: 0.32s;
           animation-delay: 0.32s;
 }
 
-.animate-title.inView .char:nth-child(9),
-.animate-title-2.inView .char:nth-child(9) {
+.tween-animate-title.inView .char:nth-child(9) {
   -webkit-animation-delay: 0.36s;
           animation-delay: 0.36s;
 }
 
-.animate-title.inView .char:nth-child(10),
-.animate-title-2.inView .char:nth-child(10) {
+.tween-animate-title.inView .char:nth-child(10) {
   -webkit-animation-delay: 0.4s;
           animation-delay: 0.4s;
 }
 
-.animate-title.inView .char:nth-child(11),
-.animate-title-2.inView .char:nth-child(11) {
+.tween-animate-title.inView .char:nth-child(11) {
   -webkit-animation-delay: 0.44s;
           animation-delay: 0.44s;
 }
 
-.animate-title.inView .char:nth-child(12),
-.animate-title-2.inView .char:nth-child(12) {
+.tween-animate-title.inView .char:nth-child(12) {
   -webkit-animation-delay: 0.48s;
           animation-delay: 0.48s;
 }
 
-.animate-title.inView .char:nth-child(13),
-.animate-title-2.inView .char:nth-child(13) {
+.tween-animate-title.inView .char:nth-child(13) {
   -webkit-animation-delay: 0.52s;
           animation-delay: 0.52s;
 }
 
-.animate-title.inView .char:nth-child(14),
-.animate-title-2.inView .char:nth-child(14) {
+.tween-animate-title.inView .char:nth-child(14) {
   -webkit-animation-delay: 0.56s;
           animation-delay: 0.56s;
 }
