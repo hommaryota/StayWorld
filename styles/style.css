@@ -42,6 +42,10 @@
           transform: translate(-50%, -50%);
 }
 
+.hero {
+  overflow: hidden;
+}
+
 .hero__title {
   position: absolute;
   top: 50%;
@@ -343,7 +347,6 @@
 .cover-slide {
   position: relative;
   overflow: hidden;
-  margin-bottom: 80vh;
 }
 
 .cover-slide::after {
@@ -544,7 +547,7 @@
   padding-top: 50%;
 }
 
-.answer .btn {
+.btn {
   position: relative;
   display: inline-block;
   background-color: white;
@@ -559,65 +562,65 @@
   text-decoration: none !important;
 }
 
-.answer .btn.float:hover {
+.btn.float:hover {
   background-color: black;
   color: white;
   -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
-.answer .btn.filled {
+.btn.filled {
   background-color: black;
   color: white;
   -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
           box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
 }
 
-.answer .btn.filled:hover {
+.btn.filled:hover {
   background-color: white;
   color: black;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.answer .btn.letter-spacing:hover {
+.btn.letter-spacing:hover {
   background-color: black;
   letter-spacing: 3px;
   color: white;
 }
 
-.answer .btn.shadow {
+.btn.shadow {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.answer .btn.shadow:hover {
+.btn.shadow:hover {
   -webkit-transform: translate(-2.5px, -2.5px);
           transform: translate(-2.5px, -2.5px);
   -webkit-box-shadow: 5px 5px 0 0 black;
           box-shadow: 5px 5px 0 0 black;
 }
 
-.answer .btn.solid {
+.btn.solid {
   -webkit-box-shadow: 2px 2px 0 0 black;
           box-shadow: 2px 2px 0 0 black;
   border-radius: 7px;
 }
 
-.answer .btn.solid:hover {
+.btn.solid:hover {
   -webkit-transform: translate(2px, 2px);
           transform: translate(2px, 2px);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.answer .btn.slide-bg {
+.btn.slide-bg {
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
-.answer .btn.slide-bg::before {
+.btn.slide-bg::before {
   content: "";
   display: inline-block;
   width: 100%;
@@ -635,16 +638,16 @@
   z-index: -1;
 }
 
-.answer .btn.slide-bg:hover {
+.btn.slide-bg:hover {
   color: white;
 }
 
-.answer .btn.slide-bg:hover::before {
+.btn.slide-bg:hover::before {
   -webkit-transform: none;
           transform: none;
 }
 
-.answer .btn.cover-3d {
+.btn.cover-3d {
   position: relative;
   z-index: 1;
   -webkit-transform-style: preserve-3d;
@@ -653,13 +656,13 @@
           perspective: 300px;
 }
 
-.answer .btn.cover-3d span {
+.btn.cover-3d span {
   display: inline-block;
   -webkit-transform: translateZ(20px);
           transform: translateZ(20px);
 }
 
-.answer .btn.cover-3d::before {
+.btn.cover-3d::before {
   content: "";
   display: inline-block;
   width: 100%;
@@ -677,11 +680,11 @@
   opacity: 0;
 }
 
-.answer .btn.cover-3d:hover {
+.btn.cover-3d:hover {
   color: white;
 }
 
-.answer .btn.cover-3d:hover::before {
+.btn.cover-3d:hover::before {
   -webkit-transform: none;
           transform: none;
   opacity: 1;
@@ -749,7 +752,7 @@ img {
   vertical-align: bottom;
 }
 
-.font-sm {
+.font-sm, .sub-title {
   font-size: 14px;
 }
 
@@ -757,15 +760,15 @@ img {
   font-size: 17px;
 }
 
-.font-lr {
+.font-lr, .houses__title {
   font-size: 17px;
 }
 
-.font-lg {
+.font-lg, .main-title {
   font-size: 25px;
 }
 
-.mb-sm {
+.mb-sm, .houses__title {
   margin-bottom: 16px !important;
 }
 
@@ -781,23 +784,36 @@ img {
   padding-bottom: 80px !important;
 }
 
-.content-width {
+.content-width, .houses {
   width: 90%;
   margin: 0 auto;
   max-width: 1070px;
 }
 
+.main-title {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.sub-title {
+  color: #535353;
+}
+
+.houses__btn {
+  text-align: center;
+}
+
 @media screen and (min-width: 960px) {
-  .font-sm {
+  .font-sm, .sub-title {
     font-size: 16px;
   }
   .font-md {
     font-size: 19px;
   }
-  .font-lr {
+  .font-lr, .houses__title {
     font-size: 23px;
   }
-  .font-lg {
+  .font-lg, .main-title {
     font-size: 36px;
   }
   .mb-lg {
