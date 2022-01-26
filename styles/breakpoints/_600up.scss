@@ -34,3 +34,14 @@
     flex-basis: 47%;
   }
 }
+
+.footer {
+  & .logo {
+    justify-content: start;
+  }
+
+  &__li {
+    margin-left: 0;
+    margin-right: 30px;
+  }
+}
