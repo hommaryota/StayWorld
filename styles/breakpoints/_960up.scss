@@ -20,6 +20,40 @@
   padding-bottom: 150px !important;
 }
 
+.travel {
+  &__img {
+    height: 400px;
+  }
+
+  &__description {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    position: relative;
+    &::before {
+      content: "";
+      width: 100px;
+      height: 1px;
+      position: absolute;
+      top: 50%;
+      left: -120px;
+      display: block;
+      background-color: $cBlack;
+      transform: translateY(-50%) scaleX(0);
+      transition: transform 0.3s ease 1.6s;
+    }
+
+    &.inView {
+      &::before {
+        content: "";
+        transform: translateY(-50%);
+        transform-origin: right;
+      }
+    }
+  }
+}
+
 .popular {
   &__item {
     flex-basis: 25%;

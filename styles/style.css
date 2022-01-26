@@ -768,7 +768,7 @@ img {
   font-size: 25px;
 }
 
-.mb-sm, .houses__title, .popular__title {
+.mb-sm, .travel__sub, .travel__img, .houses__title, .popular__title {
   margin-bottom: 16px !important;
 }
 
@@ -776,7 +776,7 @@ img {
   margin-bottom: 80px !important;
 }
 
-.pd-sm, .popular__container {
+.pd-sm, .travel__texts, .popular__container {
   padding-bottom: 16px !important;
 }
 
@@ -784,7 +784,7 @@ img {
   padding-bottom: 80px !important;
 }
 
-.content-width, .houses, .popular__header, .popular__container {
+.content-width, .travel, .houses, .popular__header, .popular__container {
   width: 90%;
   margin: 0 auto;
   max-width: 1070px;
@@ -799,7 +799,7 @@ img {
   color: #535353;
 }
 
-.flex, .houses__inner, .popular__container {
+.flex, .travel__inner, .houses__inner, .popular__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -807,6 +807,43 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.purple {
+  color: #904669;
+}
+
+.travel__inner {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px;
+  background-color: #eaebe6;
+  position: relative;
+  z-index: 0;
+}
+
+.travel__img {
+  height: 300px;
+  -webkit-transition: -webkit-box-shadow 1ms linear 0.8s;
+  transition: -webkit-box-shadow 1ms linear 0.8s;
+  transition: box-shadow 1ms linear 0.8s;
+  transition: box-shadow 1ms linear 0.8s, -webkit-box-shadow 1ms linear 0.8s;
+}
+
+.travel__img > img {
+  opacity: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: -1;
+}
+
+.travel__img.inView {
+  -webkit-box-shadow: inset 0 0 30px black;
+          box-shadow: inset 0 0 30px black;
 }
 
 .houses__btn {
@@ -854,13 +891,28 @@ img {
 }
 
 @media screen and (min-width: 600px) {
-  .flex, .houses__inner, .popular__container {
+  .flex, .travel__inner, .houses__inner, .popular__container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+  }
+  .travel__inner {
+    padding: 50px;
+  }
+  .travel__texts, .travel__img {
+    -ms-flex-preferred-size: 47%;
+        flex-basis: 47%;
+  }
+  .travel__texts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
   }
   .houses__item {
     -ms-flex-preferred-size: 50%;
@@ -897,6 +949,38 @@ img {
   .pd-lg {
     padding-bottom: 150px !important;
   }
+  .travel__img {
+    height: 400px;
+  }
+  .travel__description {
+    margin-bottom: 40px;
+  }
+  .travel__title {
+    position: relative;
+  }
+  .travel__title::before {
+    content: "";
+    width: 100px;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: -120px;
+    display: block;
+    background-color: black;
+    -webkit-transform: translateY(-50%) scaleX(0);
+            transform: translateY(-50%) scaleX(0);
+    -webkit-transition: -webkit-transform 0.3s ease 1.6s;
+    transition: -webkit-transform 0.3s ease 1.6s;
+    transition: transform 0.3s ease 1.6s;
+    transition: transform 0.3s ease 1.6s, -webkit-transform 0.3s ease 1.6s;
+  }
+  .travel__title.inView::before {
+    content: "";
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    -webkit-transform-origin: right;
+            transform-origin: right;
+  }
   .popular__item {
     -ms-flex-preferred-size: 25%;
         flex-basis: 25%;
@@ -907,6 +991,9 @@ img {
 }
 
 @media screen and (min-width: 1280px) {
+  .travel__inner {
+    padding: 50px 150px;
+  }
   .popular__item {
     -ms-flex-preferred-size: 23%;
         flex-basis: 23%;

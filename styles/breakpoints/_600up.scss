@@ -3,6 +3,22 @@
   flex-wrap: wrap;
 }
 
+.travel {
+  &__inner {
+    padding: 50px;
+  }
+
+  &__texts,
+  &__img {
+    flex-basis: 47%;
+  }
+
+  &__texts {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
 .houses {
   &__item {
     flex-basis: 50%;

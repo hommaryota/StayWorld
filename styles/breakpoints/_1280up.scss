@@ -1,3 +1,9 @@
+.travel {
+  &__inner {
+    padding: 50px 150px;
+  }
+}
+
 .popular {
   &__item {
     flex-basis: 23%;
