@@ -20,6 +20,18 @@
   padding-bottom: 150px !important;
 }
 
+.header {
+  &__nav {
+    display: block;
+  }
+}
+
+.mobile-menu {
+  &__btn {
+    display: none;
+  }
+}
+
 .travel {
   &__img {
     height: 400px;

@@ -20,4 +20,19 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const so2 = new ScrollObserver(".cover-slide", _inViewAnimation);
+
+  const header = document.querySelector(".header");
+  const _navAnimation = function (el, inView) {
+    if (inView) {
+      header.classList.remove("triggered");
+    } else {
+      header.classList.add("triggered");
+    }
+  };
+
+  const so3 = new ScrollObserver(".nav-trigger", _navAnimation, {
+    once: false,
+  });
+
+  new MobileMenu();
 });
