@@ -5,7 +5,6 @@ img {
   max-width: 100%;
   vertical-align: bottom;
 }
-// font-size
 .font-sm {
   font-size: 14px;
 }
@@ -18,44 +17,37 @@ img {
 .font-lg {
   font-size: 25px;
 }
-// margin-bottom
 .mb-sm {
   margin-bottom: 16px !important;
 }
 .mb-lg {
   margin-bottom: 80px !important;
 }
-// padding-bottom
 .pb-sm {
   padding-bottom: 16px !important;
 }
 .pb-lg {
   padding-bottom: 80px !important;
 }
-// content
 .content-width {
   width: 90%;
   margin: 0 auto;
   max-width: $contentMaxWidth;
 }
-
 .main-title {
   @extend .font-lg;
   font-weight: 600;
   margin-bottom: 0;
   display: block;
 }
-
 .sub-title {
   @extend .font-sm;
   color: $cSubTitle;
 }
-
 .flex {
   display: flex;
   flex-direction: column;
 }
-
 .purple {
   color: $cWineRed;
 }
@@ -107,6 +99,7 @@ main {
 
   &__li {
     margin-left: 20px;
+
     & > a {
       color: $cBlack;
       text-decoration: none !important;
@@ -140,29 +133,22 @@ main {
     z-index: 0;
   }
 
-  // &__title {
-  //   position: relative;
-  //   &::before {
-  //     content: "";
-  //     width: 100px;
-  //     height: 1px;
-  //     position: absolute;
-  //     top: 50%;
-  //     left: -120px;
-  //     display: none;
-  //     background-color: $cBlack;
-  //     transform: translateY(-50%) scaleX(0);
-  //     transition: transform 0.3s ease 1.6s;
-  //     transform-origin: right;
-  //   }
+  &__title {
+    position: relative;
 
-  //   &.inView {
-  //     &::before {
-  //       content: "";
-  //       transform: translateY(-50%);
-  //     }
-  //   }
-  // }
+    @include p-base(
+      $display: none,
+      $width: 100px,
+      $height: 1px,
+      $top: 50%,
+      $left: -120px
+    ) {
+      background-color: $cBlack;
+      transform: translateY(-50%) scaleX(0);
+      transition: transform 0.3s ease 1.6s;
+      transform-origin: right;
+    }
+  }
 
   &__sub {
     @extend .mb-sm;
@@ -188,6 +174,12 @@ main {
 
   &__texts {
     @extend .pb-sm;
+
+    &.inView {
+      & .travel__title::before {
+        transform: translateY(-50%);
+      }
+    }
   }
 }
 
@@ -198,10 +190,12 @@ main {
   &__inner {
     @extend .flex;
   }
+
   &__title {
     @extend .font-lr;
     @extend .mb-sm;
   }
+
   &__btn {
     text-align: center;
     flex-basis: 100%;
@@ -211,25 +205,19 @@ main {
 .popular {
   &__inner {
     position: relative;
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 90%;
-      background-color: $cBgGray;
+    @include p-base($top: 10%, $height: 90%) {
+      background: $cBgGray;
     }
   }
   &__header {
     @extend .content-width;
   }
   &__container {
+    position: relative;
+    z-index: 2;
     @extend .flex;
     @extend .content-width;
     @extend .pb-sm;
-    position: relative;
-    z-index: 2;
   }
 
   &__title {
@@ -247,6 +235,7 @@ main {
     height: 150px;
     overflow: hidden;
     margin-bottom: 5px;
+
     & > img {
       object-fit: cover;
       height: 100%;
@@ -289,13 +278,14 @@ main {
   &__li {
     padding: 0;
     margin: 10px;
+
     & > a {
       color: $cSubTitle;
     }
   }
 
   & .logo {
-    font-size: 32px;
+    font-size: 38px;
     justify-content: center;
   }
 }
@@ -305,9 +295,9 @@ main {
   position: fixed;
   top: 70%;
   transform: translateY(-50%);
+  transition: all 0.3s ease-in;
 
-  & a,
-  span {
+  & .tween-animate-title {
     color: $cBlack;
     text-decoration: none !important;
     margin: 0 40px;
@@ -315,17 +305,26 @@ main {
   }
 
   &.left {
-    left: 50px;
+    left: -50px;
+
+    &.inView {
+      left: 50px;
+    }
+
     & .side__inner {
-      transform: rotate(-90deg);
       transform-origin: top left;
+      transform: rotate(-90deg);
     }
   }
   &.right {
-    right: 50px;
+    right: -50px;
+    &.inView {
+      right: 50px;
+    }
+
     & .side__inner {
-      transform: rotate(90deg);
       transform-origin: top right;
+      transform: rotate(90deg);
     }
   }
 }
@@ -333,13 +332,8 @@ main {
 .icon {
   position: relative;
 
-  &::before {
-    position: absolute;
-    left: -20px;
-    top: 50%;
+  @include p-base($left: -20px, $top: 50%, $width: 1em, $height: 1em) {
     transform: translateY(-50%);
-    width: 1em;
-    height: 1em;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -347,15 +341,13 @@ main {
 
   &.twitter {
     &::before {
-      content: "";
-      background-image: url(../../images/twitter.svg);
+      background-image: url(../images/twitter.svg);
     }
   }
 
   &.fb {
     &::before {
-      content: "";
-      background-image: url(../../images/facebook.svg);
+      background-image: url(../images/facebook.svg);
     }
   }
 }

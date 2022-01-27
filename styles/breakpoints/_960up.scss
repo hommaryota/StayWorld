@@ -11,13 +11,42 @@
 .font-lg {
   font-size: 36px;
 }
-// margin-bottom
 .mb-lg {
   margin-bottom: 150px !important;
 }
-// padding-bottom
 .pb-lg {
   padding-bottom: 150px !important;
+}
+
+.popular {
+  &__item {
+    flex-basis: 25%;
+  }
+
+  &__img {
+    height: 335px;
+  }
+}
+
+.travel {
+  &__img {
+    height: 400px;
+  }
+
+  &__description {
+    margin-bottom: 40px;
+  }
+  &__title {
+    &::before {
+      display: block;
+    }
+  }
+}
+
+.footer {
+  &__li {
+    justify-content: flex-start;
+  }
 }
 
 .header {
@@ -32,49 +61,6 @@
   }
 }
 
-.travel {
-  &__img {
-    height: 400px;
-  }
-
-  &__description {
-    margin-bottom: 40px;
-  }
-
-  &__title {
-    position: relative;
-    &::before {
-      content: "";
-      width: 100px;
-      height: 1px;
-      position: absolute;
-      top: 50%;
-      left: -120px;
-      display: block;
-      background-color: $cBlack;
-      transform: translateY(-50%) scaleX(0);
-      transition: transform 0.3s ease 1.6s;
-    }
-
-    &.inView {
-      &::before {
-        content: "";
-        transform: translateY(-50%);
-        transform-origin: right;
-      }
-    }
-  }
-}
-
-.popular {
-  &__item {
-    flex-basis: 25%;
-  }
-  &__img {
-    height: 335px;
-  }
-}
-
 .swiper-slide {
-  box-shadow: 0 8px -10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
 }
